@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast("✅ Thông tin khách hàng đã lưu!", 'success', 1500);
 
     setTimeout(() => {
-      window.location.href = '/#menu'; // sửa path chuẩn cho Vercel
+      window.location.href = '/start.html/#menu'; // sửa path chuẩn cho Vercel
     }, 1600);
 
     return false;
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast("✅ Thông tin khách hàng đã lưu!", 'success', 1500);
 
     setTimeout(() => {
-      window.location.href = '/#menu';
+      window.location.href = '/start.html/#menu';
     }, 1600);
 
     return false;
