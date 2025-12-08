@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KaySeaOne Menu</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HAMBURGER NAV -->
+  <header class="header">
+      <img src="assets/images/placeholder1.jpg" alt="logo" class="brand-logo" onerror="this.src='assets/images/placeholder.jpg'">
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </div>
+    <nav class="side-menu" id="sideMenu">
+      <a href="#menu-oc">🦪 Món Ốc</a>
+      <a href="#menu-haisan">🦞 Hải sản tổng hợp</a>
+      <a href="#menu-best">🔥 Best Seller</a>
+      <a href="#menu-drink">🥤 Giải khát</a>
+      <a href="cart.html">🛒 Giỏ hàng <span id="menuCartCount" class="badge">0</span></a>
+      <a href="orders.html">📦 Đơn hàng đã đặt</a>
+      <a href="#contact">📞 Liên hệ</a>
+    </nav>
+  </header>
+    
+  <!-- SEARCH BAR (được nâng cấp để chạy tìm kiếm) -->
+  <div class="search-bar">
+      <input id="searchInput" type="text" placeholder="🔎︎ Tìm món ăn...">
+  </div>
+
+  <!-- SEARCH RESULT DROPDOWN -->
+  <div id="searchResults" class="search-results"></div>
+<div class="customer-info" id="customerInfo">Đang tải...</div>
+  <!-- FLOATING CART -->
+  <div class="floating-cart" onclick="goToCart()">
+    <i class="fa fa-shopping-cart"></i>
+    <span id="floatCartCount" class="badge">0</span>
+  </div>
+
+  <!-- MENU SECTIONS -->
+  <main>
+
+    <!-- 1. Món Ốc -->
+    <section id="menu-oc" class="menu-section">
+      <h2> Món Ốc/Snail dish</h2>
+      <div class="menu-grid" id="grid-oc"></div>
+    </section>
+
+    <!-- 2. Hải sản tổng hợp -->
+    <section id="menu-haisan" class="menu-section">
+      <h2>Hải sản tổng hợp/Mixed Seafood</h2>
+      <div class="menu-grid" id="grid-haisan"></div>
+    </section>
+
+    <!-- 3. Best Seller -->
+    <section id="menu-best" class="menu-section">
+      <h2> Best Seller/Món ăn được ưa chuộng nhất</h2>
+      <div class="menu-grid" id="grid-best"></div>
+    </section>
+
+    <!-- 4. Giải khát -->
+    <section id="menu-drink" class="menu-section">
+      <h2>Đồ uống/Beverages</h2>
+      <div class="menu-grid" id="grid-drink"></div>
+    </section>
+
+  </main>
+<!-- FOOTER / CONTACT -->
+    <footer id="contact" class="site-footer">
+    <div class="footer-inner container">
+        
+        <div class="foot-col about">
+        <h4>𝗄𝖺𝗒𝖲𝖾𝖺𝖮𝗇𝖾 𝖱𝖾𝗌𝗍𝖺𝗎𝗋𝖺𝗇𝗍</h4>
+        <p class="slogan">𝖶𝗁𝖾𝗋𝖾 𝗍𝗁𝖾 𝖮𝖼𝖾𝖺𝗇 𝖬𝖾𝖾𝗍𝗌 𝗍𝗁𝖾 𝖤𝖺𝗋𝗍𝖍.</p> 
+        </div>
+
+        <div class="foot-col">
+        <h4>Liên hệ</h4>
+        <p> ⾕ 685/85b Xô Viết Nghệ Tĩnh, phường Bình Thạnh, TP. HCM.</p>
+        <p> ☏ 0939275130</p>
+        <p> ⴵ 14:00 - 22:30</p>
+        </div>
+        <div class="foot-col">
+        <h4>Về Chúng Tôi</h4>
+        <a href="start.html#introduce"> ⓘ Giới thiệu</a><br>
+        <a href="https://www.facebook.com/profile.php?id=61584544238460" target="_blank">
+           ⓕ Facebook
+        </a><br>
+        <a href="mailto:kseaone.restaurant@gmail.com">
+            ✉︎ kseaone.restaurant@gmail.com
+        </a>
+        </div>
+    </div>
+
+    <div class="copyright">© 2025 kaySeaOne Restaurant</div>
+    </footer>
+
+
+  <script src="js/start.js"></script>
+
+</body>
+
+</html>

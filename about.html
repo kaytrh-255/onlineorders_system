@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Về KaySeaOne — Không gian & Trải nghiệm</title>
+
+  <!-- fonts (Google) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- global style -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- page-specific -->
+  <link rel="stylesheet" href="/css/about.css">
+
+  <!-- small script for progressive enhancement -->
+  <script defer src="/js/about.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR (giữ nguyên structure của bạn) -->
+  <header class="navbar">
+    <div class="nav-inner container">
+      <div class="brand">
+        <img src="assets/images/placeholder1.jpg" alt="KaySeaOne logo" class="brand-logo" onerror="this.src='assets/images/placeholder.jpg'">
+        <div class="brand-text">
+          <div class="brand-name">kaySeaOne</div>
+          <div class="brand-slogan">Hương vị của sự yên bình</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Trang chủ</a>
+        <a href="index.html#menu" class="nav-link">Menu</a>
+        <a href="about.html" class="nav-link active">Về quán</a>
+        <a href="contact.html" class="nav-link">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO with parallax layers -->
+  <main>
+    <section class="about-hero" aria-label="Giới thiệu không gian KaySeaOne">
+      <!-- background layers -->
+      <div class="hero-layer layer-back" style="background-image: url('assets/images/hero-sea.jpg')"></div>
+      <div class="hero-layer layer-mid" style="background-image: url('assets/images/hero-dock.jpg')"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner container">
+        <h1 class="hero-title">Không gian KaySeaOne</h1>
+        <p class="hero-sub">Một nơi nơi đại dương và đất liền gặp nhau — không gian ấm áp, tinh tế và tràn đầy ký ức.</p>
+        <a href="index.html#menu" class="btn primary hero-cta">Đặt món ngay</a>
+      </div>
+
+      <!-- subtle wave svg at bottom -->
+      <svg class="hero-wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,30 C300,80 900,-20 1200,30 L1200,60 L0,60 Z" fill="rgba(255,255,255,0.06)"></path>
+      </svg>
+    </section>
+
+    <!-- Intro + features (glass cards) -->
+    <section class="about-intro container">
+      <div class="intro-left">
+        <h2>Đắm mình trong trải nghiệm</h2>
+        <p class="muted">KaySeaOne không chỉ là một nhà hàng — đó là hành trình cảm xúc: ánh sáng dịu, gió biển, mùi gia vị, và sự chăm chút trong từng món ăn.</p>
+
+        <ul class="features">
+          <li class="feature">
+            <div class="icon">🏝️</div>
+            <div class="meta">
+              <h4>View hướng biển</h4>
+              <p>Ban công hướng biển, bình minh và hoàng hôn đẹp như tranh.</p>
+            </div>
+          </li>
+
+          <li class="feature">
+            <div class="icon">🕯️</div>
+            <div class="meta">
+              <h4>Không gian ấm cúng</h4>
+              <p>Ánh sáng vàng, bàn gỗ và âm nhạc nhẹ nhàng cho buổi tối lãng mạn.</p>
+            </div>
+          </li>
+
+          <li class="feature">
+            <div class="icon">🍴</div>
+            <div class="meta">
+              <h4>Ẩm thực tinh tế</h4>
+              <p>Tinh hoa hải sản, trình bày cầu kì, hương vị chinh phục mọi thực khách.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="intro-right">
+        <!-- glass card stack with slow floating animation -->
+        <div class="glass-stack">
+          <article class="glass-card" aria-hidden="false">
+            <img data-src="assets/images/hero1.png" alt="Không gian trong nhà" class="lazy" />
+            <div class="card-body">
+              <h3>Phòng ăn chính</h3>
+              <p>Chỗ ngồi rộng rãi, thiết kế chú trọng tầm nhìn và riêng tư.</p>
+            </div>
+          </article>
+
+          <article class="glass-card" aria-hidden="true">
+            <img data-src="assets/images/hero2.png" alt="Ban công nhìn ra biển" class="lazy" />
+            <div class="card-body">
+              <h3>Ban công</h3>
+              <p>Không khí mặn mòi, lý tưởng cho bữa tối cùng người thương.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image mosaic with hover effects + reveal on scroll -->
+    <section class="about-gallery container" aria-label="Hình ảnh quán">
+      <h2 class="section-title">Góc nhìn từ KaySeaOne</h2>
+
+      <div class="masonry">
+        <figure class="m-item reveal" data-delay="0">
+          <img data-src="assets/images/gallery-1.jpg" alt="Hải sản tươi" class="lazy">
+          <figcaption>Hải sản tươi mỗi ngày</figcaption>
+        </figure>
+
+        <figure class="m-item reveal" data-delay="120">
+          <img data-src="assets/images/hero3.png" alt="Bàn ngoài trời" class="lazy">
+          <figcaption>Bàn ngoài trời ấm áp</figcaption>
+        </figure>
+
+        <!-- <figure class="m-item reveal" data-delay="240">
+          <img data-src="assets/images/gallery-3.jpg" alt="Cocktail đặc trưng" class="lazy">
+          <figcaption>Cocktail đặc trưng</figcaption>
+        </figure>
+
+        <figure class="m-item reveal" data-delay="360">
+          <img data-src="assets/images/gallery-4.jpg" alt="Chi tiết trang trí" class="lazy">
+          <figcaption>Chi tiết trang trí tỉ mỉ</figcaption>
+        </figure> -->
+      </div>
+    </section>
+
+    <!-- mini timeline or story with animated steps -->
+    <section class="about-story container">
+      <h2 class="section-title">Câu chuyện của chúng tôi</h2>
+      <ol class="timeline">
+        <li class="step">
+          <div class="num">1</div>
+          <div class="txt"><strong>Khởi nguồn</strong><br/>Một ý tưởng về ẩm thực biển kết hợp truyền thống và hiện đại.</div>
+        </li>
+        <li class="step">
+          <div class="num">2</div>
+          <div class="txt"><strong>Chọn nguyên liệu</strong><br/>Hợp tác cùng ngư dân địa phương, tươi từ biển lên bàn.</div>
+        </li>
+        <li class="step">
+          <div class="num">3</div>
+          <div class="txt"><strong>Trải nghiệm</strong><br/>Tổ chức sự kiện, set menu đặc sắc cho mọi dịp.</div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- FOOTER (giữ nguyên) -->
+  <footer id="contact" class="site-footer">
+    <div class="footer-inner container">
+      <div class="foot-col about">
+        <h4>kaySeaOne Restaurant</h4>
+        <p class="slogan">Where the Ocean Meets the Earth.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Liên hệ</h4>
+        <p>685/85b Xô Viết Nghệ Tĩnh, Bình Thạnh, TP.HCM</p>
+        <p>0939275130</p>
+      </div>
+      <div class="foot-col">
+        <h4>Mạng xã hội</h4>
+        <a href="#">Facebook</a><br>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="copyright">© 2025 kaySeaOne Restaurant</div>
+  </footer>
+
+  <!-- tiny inline SVG filter for subtle noise (optional) -->
+  <svg width="0" height="0" style="position:absolute">
+    <filter id="grain">
+      <feTurbulence baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="t"></feTurbulence>
+      <feColorMatrix type="saturate" values="0" ></feColorMatrix>
+      <feBlend in="SourceGraphic" in2="t" mode="overlay"></feBlend>
+    </filter>
+  </svg>
+
+</body>
+</html>

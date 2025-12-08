@@ -1,0 +1,23 @@
+{
+  "oc": [
+    { "name": "Ốc Hương Sốt Trứng Muối", "price": 89000, "img": "assets/oc-huong.jpg" },
+    { "name": "Ốc Mỡ Cháy Tỏi", "price": 69000, "img": "assets/oc-mo.jpg" },
+    { "name": "Ốc Len Xào Dừa", "price": 59000, "img": "assets/oc-len.jpg" }
+  ],
+
+  "haisan": [
+    { "name": "Tôm Sú Nướng Muối Ớt", "price": 120000, "img": "assets/tom-su.jpg" },
+    { "name": "Mực Trứng Chiên Giòn", "price": 98000, "img": "assets/muc-trung.jpg" }
+  ],
+
+  "best": [
+    { "name": "Càng Ghẹ Rang Me", "price": 159000, "img": "assets/cang-ghe.jpg" },
+    { "name": "Hàu Phô Mai", "price": 79000, "img": "assets/hau-phomai.jpg" }
+  ],
+
+  "drink": [
+    { "name": "Trà Tắc", "price": 15000, "img": "assets/tra-tac.jpg" },
+    { "name": "Coca-Cola", "price": 18000, "img": "assets/coca.jpg" },
+    { "name": "Pepsi", "price": 18000, "img": "assets/pepsi.jpg" }
+  ]
+}

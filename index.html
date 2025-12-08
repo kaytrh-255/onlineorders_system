@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ốc KayOne — Bắt đầu</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner container">
+      <div class="brand">
+        <img src="assets/images/placeholder1.jpg" alt="logo" class="brand-logo" onerror="this.src='assets/images/placeholder.jpg'">
+        <div class="brand-text">
+          <div class="brand-name">kaySeaOne</div>
+          <div class="brand-slogan">Hương vị của sự yên bình</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="about.html" class="nav-link">Giới thiệu</a>
+        <a href="#choose-section" class="nav-link">Đặt món</a>
+        <a href="#menu-preview" class="nav-link">Menu sơ lược</a>
+        <a href="#contact" class="nav-link">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="introduce" aria-label="Giới thiệu">
+    <div class="hero-inner container">
+      <div class="hero-content">
+        <h1>𝓴𝓪𝔂𝓢𝓮𝓪𝓞𝓷𝓮 𝓡𝓮𝓼𝓽𝓪𝓾𝓻𝓪𝓷𝓽</h1>
+        <p class="lead">𝓝𝓸̛𝓲 Đ𝓪̣𝓲 𝓭𝓾̛𝓸̛𝓷𝓰 𝓰𝓲𝓪𝓸 𝓱𝓸̀𝓪 𝓿𝓸̛́𝓲 Đ𝓪̂́𝓽 𝓶𝓮̣. 𝓐̆𝓷 𝓽𝓪̣𝓲 𝓺𝓾𝓪́𝓷 𝓱𝓸𝓪̣̆𝓬 đ𝓪̣̆𝓽 𝓰𝓲𝓪𝓸 𝓽𝓪̣̂𝓷 𝓷𝓸̛𝓲, 𝓬𝓱𝓾𝓪̂̉𝓷 𝓿𝓲̣, 𝓽𝓾̛𝓸̛𝓲 𝓷𝓰𝓸𝓷.</p>
+
+        <div class="hero-ctas">
+          <button class="btn primary" onclick="document.getElementById('choose-section').scrollIntoView({behavior:'smooth'})">Bắt đầu gọi món</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHOOSE MODE SECTION -->
+  <main class="main container" id="choose-section">
+    <section class="choose-area">
+      <div class="left">
+        <h2>Chọn cách đặt món</h2>
+        <p class="muted">Hãy chọn chế độ để tiếp tục — thông tin sẽ được lưu cho toàn bộ phiên làm việc.</p>
+
+        <div class="mode-cards">
+          <article class="mode-card" id="card-offline">
+            <div class="mode-icon">🏠</div>
+            <h3>Tại cửa hàng</h3>
+            <p class="muted">Nhân viên nhận order & phục vụ tận bàn.</p>
+            <button class="btn card-btn" data-mode="offline" onclick="showForm('offline')">Chọn Tại cửa hàng</button>
+          </article>
+
+          <article class="mode-card" id="card-online">
+            <div class="mode-icon">🚚</div>
+            <h3>Đặt trực tuyến</h3>
+            <p class="muted">Giao hàng tận nơi — nhập địa chỉ giao.</p>
+            <button class="btn card-btn" data-mode="online" onclick="showForm('online')">Chọn Đặt online</button>
+          </article>
+        </div>
+
+        <!-- forms -->
+        <div class="form-wrap" id="form-wrap">
+          <form id="form-offline" class="mode-form hidden" onsubmit="return submitOffline(event)">
+            <h4>Thông tin - Tại cửa hàng</h4>
+            <label>Số bàn
+              <input id="table-number" type="text" placeholder="VD: 12" required>
+            </label>
+            <label>Tên khách
+              <input id="table-name" type="text" placeholder="Tên (không bắt buộc)">
+            </label>
+            <label>Số điện thoại
+              <input id="table-phone" type="tel" placeholder="SĐT (khuyến nghị)">
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn primary wide">Bắt đầu</button>
+              <button type="button" class="btn ghost" onclick="hideForms()">Hủy</button>
+            </div>
+          </form>
+
+          <form id="form-online" class="mode-form hidden" onsubmit="return submitOnline(event)">
+            <h4>Thông tin - Đặt trực tuyến</h4>
+            <label>Địa chỉ nhận hàng
+              <input id="online-address" type="text" placeholder="Nhập địa chỉ" required>
+            </label>
+            <label>Tên người nhận
+              <input id="online-name" type="text" placeholder="Tên (không bắt buộc)">
+            </label>
+            <label>Số điện thoại
+              <input id="online-phone" type="tel" placeholder="SĐT" required>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn primary wide">Bắt đầu</button>
+              <button type="button" class="btn ghost" onclick="hideForms()">Hủy</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <aside class="right">
+        <h3>Menu sơ lược</h3>
+        <div id="menu-preview" class="menu-preview">
+          <!-- populated by JS -->
+        </div>
+        <p class="preview-note muted">Xem nhanh một vài món đặc trưng. Để order đầy đủ,tham khảo giá trung bình của một món, hãy chọn chế độ rồi vào Menu chính.</p>
+      </aside>
+    </section>
+  </main>
+<div id="toast"></div>
+
+  <!-- FOOTER / CONTACT -->
+    <footer id="contact" class="site-footer">
+    <div class="footer-inner container">
+        
+        <div class="foot-col about">
+        <h4>𝗄𝖺𝗒𝖲𝖾𝖺𝖮𝗇𝖾 𝖱𝖾𝗌𝗍𝖺𝗎𝗋𝖺𝗇𝗍</h4>
+        <p class="slogan">𝖶𝗁𝖾𝗋𝖾 𝗍𝗁𝖾 𝖮𝖼𝖾𝖺𝗇 𝖬𝖾𝖾𝗍𝗌 𝗍𝗁𝖾 𝖤𝖺𝗋𝗍𝖍.</p> 
+        <p class="desc">
+            C𝗁𝖺̀𝗈 𝗆𝗎̛̀𝗇𝗀 𝗊𝗎𝗒́ 𝗄𝗁𝖺́𝖼𝗁 𝖽𝖾̂́𝗇 𝗏𝗈̛́𝗂 𝖪𝖺𝗒𝖲𝖾𝖺 𝖱𝖾𝗌𝗍𝖺𝗎𝗋𝖺𝗇𝗍—𝗇𝗈̛𝗂 𝗁𝗈̣̂𝗂 𝗍𝗎̣ 𝗍𝗂𝗇𝗁 𝗁𝗈𝖺 𝖼𝗎̉𝖺 𝖽𝖺̣𝗂 𝖽𝗎̛𝗈̛𝗇𝗀 𝗏𝖺̀ 𝗌𝗎̛̣ 𝗍𝗎̛𝗈̛𝗂 𝗆𝖺́𝗍 𝖼𝗎̉𝖺 𝗋𝗎̛̀𝗇𝗀 𝗑𝖺𝗇𝗁.
+        </div>
+
+        <div class="foot-col">
+        <h4>Liên hệ</h4>
+        <p> ⾕ 685/85b Xô Viết Nghệ Tĩnh, phường Bình Thạnh, TP. HCM.</p>
+        <p> ☏ 0939275130</p>
+        <p> ⴵ 14:00 - 22:30</p>
+        </div>
+        <div class="foot-col">
+        <h4>Về Chúng Tôi</h4>
+        <a href="about.html"> ⓘ Giới thiệu</a><br>
+        <a href="https://www.facebook.com/profile.php?id=61584544238460" target="_blank">
+           ⓕ Facebook
+        </a><br>
+        <a href="mailto:kseaone.restaurant@gmail.com">
+            ✉︎ kseaone.restaurant@gmail.com
+        </a>
+        </div>
+    </div>
+
+    <div class="copyright">© 2025 kaySeaOne Restaurant</div>
+    </footer>
+
+  <!-- JS -->
+  <script src="js/index.js"></script>
+
+</body>
+</html>

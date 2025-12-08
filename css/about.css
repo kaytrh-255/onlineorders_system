@@ -1,0 +1,182 @@
+:root{
+  --accent:#d9b86b;
+  --muted:#7f6f62;
+  --bg: #fbf6ef;
+  --card-bg: rgba(255,255,255,0.6);
+  --glass: rgba(255,255,255,0.15);
+  --glass-strong: rgba(255,255,255,0.22);
+  --shadow: 0 12px 30px rgba(60,47,40,0.08);
+  --max-width: 1100px;
+  font-synthesis: none;
+}
+
+/* Global tweaks for the about page */
+.about-hero{
+  position: relative;
+  height: 60vh;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 18px;
+  margin: 28px auto;
+}
+
+/* Parallax layers */
+.hero-layer{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 0.6s ease-out;
+}
+
+/* separate depths */
+.layer-back { transform: translateZ(-1px) scale(1.05); filter: saturate(0.92) brightness(0.9); }
+.layer-mid  { mix-blend-mode: overlay; opacity: 0.9; transform: translateY(6%); }
+
+.hero-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(3,18,30,0.18), rgba(3,18,30,0.28));
+  pointer-events:none;
+}
+
+/* hero content centered */
+.hero-inner{
+  position: relative;
+  z-index: 3;
+  width: min(var(--max-width), 94%);
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.hero-title{
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 5vw, 52px);
+  letter-spacing: 0.6px;
+  color: var(--accent);
+  text-shadow: 0 6px 22px rgba(0,0,0,0.45);
+  margin-bottom: 10px;
+  transform: translateY(6px);
+  animation: floatIn 900ms ease both;
+}
+
+@keyframes floatIn { from { opacity:0; transform: translateY(18px); } to { opacity:1; transform: translateY(0);} }
+
+.hero-sub{
+  color: #e9f2f1;
+  margin-bottom: 18px;
+  font-size: clamp(14px, 1.8vw, 20px);
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.95;
+}
+
+/* hero CTA */
+.hero-cta{
+  display:inline-block;
+  margin-top: 12px;
+  background: linear-gradient(180deg, var(--accent), #e6c98f);
+  color:#2b1f17;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight:700;
+  box-shadow: 0 10px 30px rgba(217,184,107,0.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.hero-cta:hover{ transform: translateY(-4px); box-shadow: 0 18px 40px rgba(217,184,107,0.18); }
+
+/* subtle wave */
+.hero-wave { position:absolute; left:0; right:0; bottom:-1px; width:100%; height:60px; z-index:2; }
+
+/* INTRO SECTION */
+.about-intro{
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  align-items: start;
+  width: min(var(--max-width), 96%);
+  margin: 12px auto 36px;
+  padding: 10px;
+}
+
+/* features list */
+.intro-left h2 { font-size: 28px; margin-bottom: 8px; color: #223; }
+.muted { color: var(--muted); margin-bottom: 14px; }
+
+.features { list-style:none; padding:0; margin: 12px 0 0; display:grid; gap:14px; }
+.feature { display:flex; gap:12px; align-items:flex-start; background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.55)); padding:12px; border-radius:12px; box-shadow: var(--shadow); }
+.feature .icon{ font-size:24px; margin-top:3px; }
+.feature .meta h4{ margin:0 0 6px; font-size:16px; }
+
+/* GLASS STACK */
+.glass-stack { display:flex; flex-direction:column; gap:14px; align-items:stretch; transform-style:preserve-3d; }
+.glass-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  border-radius:14px;
+  padding:0;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s;
+  transform-origin:center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.glass-card img{
+  display:block; width:100%; height:220px; object-fit:cover; filter: saturate(0.95) contrast(0.96);
+  transform-origin:center; transition: transform .45s;
+}
+.glass-card .card-body{ padding:14px; background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent); }
+.glass-card:hover{ transform: translateY(-8px) rotateX(1deg); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+.glass-card:hover img{ transform: scale(1.06); }
+
+/* MASONRY / GALLERY */
+.about-gallery { margin: 6px auto 60px; width: min(var(--max-width), 96%); }
+.section-title { font-size:22px; margin-bottom:12px; color: #223; }
+
+.masonry {
+  column-gap:16px;
+  column-count: 2;
+}
+.m-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius:12px;
+  overflow:hidden;
+  background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+  position:relative;
+  box-shadow: var(--shadow);
+  transform-origin:center;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.m-item img { width:100%; height:auto; display:block; transform:scale(1); transition: transform .45s cubic-bezier(.2,.9,.3,1); }
+.m-item figcaption { padding:10px 12px; color:var(--muted); font-size:14px; }
+
+/* hover lift + zoom */
+.m-item:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+.m-item:hover img { transform: scale(1.06); }
+
+/* reveal animation */
+.reveal { opacity:0; transform: translateY(18px) scale(0.995); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity:1; transform: translateY(0) scale(1); }
+
+/* TIMELINE */
+.about-story { width: min(var(--max-width),96%); margin: 18px auto 80px; }
+.timeline { list-style:none; padding:0; margin: 16px 0 0; display:grid; gap:12px; }
+.step { display:flex; gap:14px; align-items:flex-start; background:linear-gradient(180deg, rgba(255,255,255,0.9), #fff); padding:12px; border-radius:10px; box-shadow:var(--shadow); }
+.step .num { min-width:46px; height:46px; border-radius:8px; background: linear-gradient(180deg,var(--accent), #e6c98f); color:#231; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; }
+.step .txt { color:#333; }
+
+/* responsiveness */
+@media (max-width:980px){
+  .about-intro { grid-template-columns: 1fr; }
+  .masonry { column-count: 1; }
+  .hero-inner{ padding: 28px 16px; }
+}
+
+/* accessibility focus states */
+a:focus, button:focus { outline: 3px solid rgba(217,184,107,0.25); outline-offset: 3px; }

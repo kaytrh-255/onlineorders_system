@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ hàng</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+ <header class="navbar">
+    <div class="nav-inner container">
+      <div class="brand">
+        <img src="assets/images/placeholder1.jpg" alt="logo" class="brand-logo" onerror="this.src='assets/images/placeholder.jpg'">
+        <div class="brand-text">
+          <div class="brand-name">kaySeaOne</div>
+          <div class="brand-slogan">Hương vị của sự yên bình</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="about.html" class="nav-link">Giới thiệu</a>
+        <a href="index.html" class="nav-link">Đặt món</a>
+        <a href="#contact" class="nav-link">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+  <!-- MAIN -->
+  <main class="cart-container">
+
+      <h1 class="cart-title">🛒 Giỏ hàng của bạn</h1>
+
+      <!-- CUSTOMER INFO -->
+      <div class="customer-info" id="customerInfo">Đang tải thông tin...</div>
+
+      <!-- CART LIST -->
+      <div id="cartItems" class="cart-items"></div>
+
+      <!-- TOTAL + CHECKOUT -->
+      <div class="cart-summary">
+        <p>Tổng cộng: <span id="cartTotal">0đ</span></p>
+        <button class="checkout-btn" onclick="checkout()">Thanh toán</button>
+      </div>
+
+      <div id="queueMessage" class="queue-msg"></div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="site-footer">
+      <div class="footer-inner container">
+          <div class="foot-col about">
+              <h4>𝗄𝖺𝗒𝖲𝖾𝖺𝖮𝗇𝖾 𝖱𝖾𝗌𝗍𝖺𝗎𝗋𝖺𝗇𝗍</h4>
+              <p class="slogan">𝖶𝗁𝖾𝗋𝖾 𝗍𝗁𝖾 𝖮𝖼𝖾𝖺𝗇 𝖬𝖾𝖾𝗍𝗌 𝗍𝗁𝖾 𝖤𝖺𝗋𝗍𝗁.</p>
+          </div>
+
+          <div class="foot-col">
+              <h4>Liên hệ</h4>
+              <p>⾕ 685/85b Xô Viết Nghệ Tĩnh, Bình Thạnh, TP HCM</p>
+              <p>☏ 0939275130</p>
+              <p>ⴵ 14:00 - 22:30</p>
+          </div>
+
+          <div class="foot-col">
+              <h4>Về Chúng Tôi</h4>
+              <a href="about.html">ⓘ Giới thiệu</a><br>
+              <a href="https://www.facebook.com/profile.php?id=61584544238460" target="_blank">
+                ⓕ Facebook
+              </a><br>
+              <a href="mailto:kseaone.restaurant@gmail.com"> ✉︎ kseaone.restaurant@gmail.com</a>
+          </div>
+      </div>
+
+      <div class="copyright">© 2025 kaySeaOne Restaurant</div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>
