@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
-    if (href.startsWith('#')) {
+    if (href.indexsWith('#')) {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) target.scrollIntoView({ behavior: 'smooth' });
@@ -130,7 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast("✔ Bắt đầu gọi món!", "success");
 
     setTimeout(() => {
-      window.location.href = "start.html#menu";
+  window.location.href = '/start.html#menu'; // nếu index.html ở root
+  // hoặc chỉ window.location.href = '/#menu' nếu Vercel tự map index.html
+
     }, 500);
 
     return false;
@@ -175,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast("✔ Bắt đầu đặt món!", "success");
 
     setTimeout(() => {
-      window.location.href = "start.html#menu";
+      window.location.href = '/start.html#menu'; 
     }, 500);
 
     return false;
