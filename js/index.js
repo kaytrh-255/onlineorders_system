@@ -25,13 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==============================
   // ⭐ Smooth scroll
   // ==============================
-  document.querySelectorAll(".nav-links a").forEach((a) => {
-    a.addEventListener("click", (e) => {
+  // document.querySelectorAll(".nav-links a").forEach((a) => {
+  //   a.addEventListener("click", (e) => {
+  //     e.preventDefault();
+  //     const target = document.querySelector(a.getAttribute("href"));
+  //     if (target) target.scrollIntoView({ behavior: "smooth" });
+  //   });
+  // });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href');
+    if (href.startsWith('#')) {
       e.preventDefault();
-      const target = document.querySelector(a.getAttribute("href"));
-      if (target) target.scrollIntoView({ behavior: "smooth" });
-    });
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    } 
+    // Nếu link ngoài hoặc file khác, không preventDefault → vẫn navigate bình thường
   });
+});
 
   const formOffline = document.getElementById("form-offline");
   const formOnline = document.getElementById("form-online");
