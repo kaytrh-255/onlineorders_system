@@ -1,20 +1,20 @@
+// ======================= index.js =======================
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ====================== SMOOTH SCROLL ======================
+  // --------------------- SMOOTH SCROLL ---------------------
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      }
-      // Nếu link ngoài, để mặc định → navigate bình thường
+      if (!href.startsWith('#')) return; // external link giữ nguyên
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
+  // --------------------- FORM HANDLING ---------------------
   const formOffline = document.getElementById('form-offline');
-  const formOnline = document.getElementById('form-online');
+  const formOnline  = document.getElementById('form-online');
 
   window.showForm = function(mode) {
     if (mode === 'offline') {
@@ -33,40 +33,37 @@ document.addEventListener('DOMContentLoaded', () => {
     formOnline.classList.add('hidden');
   };
 
-  // ====================== CREATE CART ======================
-  if (!localStorage.getItem('cart')) {
-    localStorage.setItem('cart', JSON.stringify([]));
-  }
+  // --------------------- CART INIT ---------------------
+  if (!localStorage.getItem('cart')) localStorage.setItem('cart', JSON.stringify([]));
 
-  // ====================== TOAST ======================
-  function showToast(message, type='info', duration=2500) {
+  // --------------------- TOAST FUNCTION ---------------------
+  function showToast(msg, type = 'info', duration = 2000) {
     let toast = document.createElement('div');
     toast.className = `toast ${type}`;
-    toast.innerText = message;
+    toast.innerText = msg;
     document.body.appendChild(toast);
 
-    setTimeout(() => {
-      toast.classList.add('show');
-    }, 100); // trigger CSS animation
-
+    setTimeout(() => toast.classList.add('show'), 100);
     setTimeout(() => {
       toast.classList.remove('show');
       setTimeout(() => document.body.removeChild(toast), 300);
     }, duration);
   }
 
-  // ====================== VALIDATE PHONE ======================
+  // --------------------- PHONE VALIDATION ---------------------
   function validatePhone(phone) {
     return /^0\d{9}$/.test(phone);
   }
 
   function phoneExistsInRecentOrders(phone) {
     const orders = JSON.parse(localStorage.getItem("orders")) || [];
-    const recent = orders.slice(-10); // 10 đơn mới nhất
-    return recent.some(order => order.customer && order.customer.phone === phone);
+    const recent = orders.slice(-10); // 10 đơn gần nhất
+    return recent.some(order =>
+      order.customer && order.customer.phone && order.customer.phone === phone
+    );
   }
 
-  // ====================== OFFLINE SUBMIT ======================
+  // --------------------- OFFLINE SUBMIT ---------------------
   window.submitOffline = function(e) {
     e.preventDefault();
 
@@ -75,17 +72,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const phone = document.getElementById('table-phone').value.trim();
 
     if (!table) {
-      showToast('Vui lòng nhập số bàn!', 'error');
+      showToast('⚠ Vui lòng nhập số bàn!', 'error');
       return false;
     }
 
-    if (phone.length > 0) {
+    if (phone) {
       if (!validatePhone(phone)) {
-        showToast("Số điện thoại phải gồm 10 số và bắt đầu bằng 0!", 'error');
+        showToast('⚠ SĐT phải gồm 10 số và bắt đầu bằng 0!', 'error');
         return false;
       }
       if (phoneExistsInRecentOrders(phone)) {
-        showToast("Số điện thoại đã xuất hiện trong 10 đơn gần nhất!", 'error');
+        showToast('⚠ SĐT đã xuất hiện trong 10 đơn gần nhất!', 'error');
         return false;
       }
     }
@@ -97,16 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
       phone
     }));
 
-    showToast("✅ Thông tin khách hàng đã lưu!", 'success', 1500);
-
-    setTimeout(() => {
-      window.location.href = '/start.html/#menu'; // sửa path chuẩn cho Vercel
-    }, 1600);
-
+    showToast('✅ Thông tin khách hàng đã lưu!', 'success', 1200);
+    setTimeout(() => { window.location.href = './start.html#menu'; }, 1300);
     return false;
   };
 
-  // ====================== ONLINE SUBMIT ======================
+  // --------------------- ONLINE SUBMIT ---------------------
   window.submitOnline = function(e) {
     e.preventDefault();
 
@@ -115,17 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const phone   = document.getElementById('online-phone').value.trim();
 
     if (!address) {
-      showToast('Vui lòng nhập địa chỉ!', 'error');
+      showToast('⚠ Vui lòng nhập địa chỉ!', 'error');
       return false;
     }
 
     if (!validatePhone(phone)) {
-      showToast("Số điện thoại phải gồm 10 số và bắt đầu bằng 0!", 'error');
+      showToast('⚠ SĐT phải gồm 10 số và bắt đầu bằng 0!', 'error');
       return false;
     }
 
     if (phoneExistsInRecentOrders(phone)) {
-      showToast("Số điện thoại đã xuất hiện trong 10 đơn gần nhất!", 'error');
+      showToast('⚠ SĐT đã xuất hiện trong 10 đơn gần nhất!', 'error');
       return false;
     }
 
@@ -136,16 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
       phone
     }));
 
-    showToast("✅ Thông tin khách hàng đã lưu!", 'success', 1500);
-
-    setTimeout(() => {
-      window.location.href = '/start.html/#menu';
-    }, 1600);
-
+    showToast('Thông tin khách hàng đã lưu!', 'success', 1200);
+    setTimeout(() => { window.location.href = './start.html#menu'; }, 1300);
     return false;
   };
 
-  // ====================== PREVIEW MINI MENU ======================
+  // --------------------- MINI MENU PREVIEW ---------------------
   const PREVIEW = [
     { id: 1, name: 'Món Ốc/Snail dish', price: '165.000đ', img: 'assets/images/chuyenveoc.jpg' },
     { id: 2, name: 'Hải sản tổng hợp/Mixed Seafood', price: '189.000đ', img: 'assets/images/chuyenvehaisan.jpg' },
