@@ -1,16 +1,21 @@
-const customerInfo = document.getElementById("customerInfo");
-let mode = localStorage.getItem("mode");  // "online" hoặc "offline"
+document.addEventListener("DOMContentLoaded", () => {
+  const customerInfo = document.getElementById("customerInfo");
+  let mode = localStorage.getItem("mode");  // "online" hoặc "offline"
 
-if (!mode) {
-  window.location.href = "index.html";
-}
+  if (!mode) {
+    window.location.href = "index.html";
+    return;
+  }
 
-// Với từng mode → hiện thông tin phù hợp
-if (mode === "offline") {
-  customerInfo.innerText = "Bàn số: " + localStorage.getItem("tableNumber");
-} else {
-  customerInfo.innerText = "Địa chỉ: " + localStorage.getItem("address");
-}
+  if (customerInfo) { // check element tồn tại
+    if (mode === "offline") {
+      customerInfo.innerText = "Bàn số: " + localStorage.getItem("tableNumber");
+    } else {
+      customerInfo.innerText = "Địa chỉ: " + localStorage.getItem("address");
+    }
+  }
+});
+
 // menu data
 const foods = {
   oc: [
