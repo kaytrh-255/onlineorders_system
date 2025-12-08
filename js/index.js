@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
 
     showToast('✅ Thông tin khách hàng đã lưu!', 'success', 1200);
-    setTimeout(() => { window.location.href = './start.html#menu'; }, 1300);
+    setTimeout(() => { window.location.href = './start.html'; }, 1300);
     return false;
   };
 
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
 
     showToast('Thông tin khách hàng đã lưu!', 'success', 1200);
-    setTimeout(() => { window.location.href = './start.html#menu'; }, 1300);
+    setTimeout(() => { window.location.href = './start.html'; }, 1300);
     return false;
   };
 
