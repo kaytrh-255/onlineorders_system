@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const customerInfo = document.getElementById("customerInfo");
   let mode = localStorage.getItem("mode");  // "online" hoặc "offline"
 
-  // if (!mode) {
-  //   window.location.href = "index.html";
-  //   return;
-  // }
+  if (!mode) {
+    window.location.href = "index.html";
+    return;
+  }
 
   if (customerInfo) { // check element tồn tại
     if (mode === "offline") {
