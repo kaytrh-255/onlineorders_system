@@ -93,7 +93,13 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => window.location.href = "start.html#menu", 500);
     return false;
   };
-
+// PREVIEW MINI MENU
+  const PREVIEW = [
+    { id: 1, name: 'Món Ốc/Snail dish', price: '165.000đ', img: 'assets/images/chuyenveoc.jpg' },
+    { id: 2, name: 'Hải sản tổng hợp/Mixed Seafood', price: '189.000đ', img: 'assets/images/chuyenvehaisan.jpg' },
+    { id: 3, name: 'BestSeller', price: '119.000đ', img: 'assets/images/bestseller.jpg' },
+    { id: 4, name: 'Đồ uống', price: '25.000đ', img: 'assets/images/nuocgiaikhat.jpg' }
+  ];
   // ==============================
   // ⭐ ONLINE SUBMIT
   // ==============================
