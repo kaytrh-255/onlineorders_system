@@ -100,6 +100,23 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 3, name: 'BestSeller', price: '119.000đ', img: 'assets/images/bestseller.jpg' },
     { id: 4, name: 'Đồ uống', price: '25.000đ', img: 'assets/images/nuocgiaikhat.jpg' }
   ];
+
+  const wrap = document.getElementById('menu-preview');
+  if (wrap) {
+    PREVIEW.forEach(it => {
+      const el = document.createElement('div');
+      el.className = 'preview-item';
+      el.innerHTML = `
+        <img src="${it.img}" alt="${it.name}" onerror="this.src='assets/images/placeholder.jpg'">
+        <div class="pmeta">
+          <div class="pname">${it.name}</div>
+          <div class="pprice" style="color:var(--gold); font-weight:700">${it.price}</div>
+        </div>
+      `;
+      wrap.appendChild(el);
+    });
+  }
+
   // ==============================
   // ⭐ ONLINE SUBMIT
   // ==============================
