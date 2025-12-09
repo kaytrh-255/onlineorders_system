@@ -46,7 +46,7 @@ function loadCart() {
   if (cart.length === 0) {
     cartDiv.innerHTML = `
       <p class="empty-cart">🛒 Giỏ hàng đang trống.</p>
-      <a href="index.html" class="back-btn">⬅ Quay về menu</a>
+      <a href="start.html" class="back-btn">⬅ Quay về menu</a>
     `;
     if (totalView) totalView.innerText = "0đ";
     return;
@@ -70,7 +70,7 @@ function loadCart() {
   // Thêm nút tiếp tục chọn món
   cartDiv.innerHTML += `
     <div class="add-more-area">
-      <a href="index.html" class="add-more-btn">➕ Thêm món ăn</a>
+      <a href="start.html" class="add-more-btn">➕ Thêm món ăn</a>
     </div>
   `;
 
