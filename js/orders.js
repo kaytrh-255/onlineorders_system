@@ -11,41 +11,37 @@ document.addEventListener("DOMContentLoaded", () => {
     wrap.innerHTML = "";
 
     orders.forEach((order, index) => {
+        // ⭐ Luôn đảm bảo customer là object hợp lệ
+        const customer = order.customer || {};
 
-        const c = order.customer || {};
-
-        // ==========================
-        //   ⭐ FORMAT TYPE (table / delivery)
-        // ==========================
+        // ========== ⭐ TYPE: TABLE / DELIVERY ==========
         let typeText = "";
-        if (c.type === "table") {
-            typeText = `🍽 Tại bàn: <b>${c.table || "Không rõ"}</b>`;
-        } else if (c.type === "delivery") {
-            typeText = `🚚 Địa chỉ: <b>${c.address || "Không rõ"}</b>`;
+
+        if (customer.type === "table") {
+            typeText = `🍽 Tại bàn: <b>${customer.table || "Không rõ"}</b>`;
+        } else if (customer.type === "delivery") {
+            typeText = `🚚 Địa chỉ: <b>${customer.address || "Không rõ"}</b>`;
         } else {
             typeText = `❓ Không xác định`;
         }
 
-        // ==========================
-        //   ⭐ PHONE
-        // ==========================
-        const phoneText = c.phone
-            ? `📞 SĐT: <b>${c.phone}</b>`
+        // ========== ⭐ PHONE ==========
+        const phoneText = customer.phone
+            ? `📞 SĐT: <b>${customer.phone}</b>`
             : `📞 Không có`;
 
-        // ==========================
-        //   ⭐ ITEMS
-        // ==========================
-        const itemsHTML = order.items
-            .map(i => `<li>${i.name} — <b>${i.price.toLocaleString()}đ</b></li>`)
+        // ========== ⭐ LIST ITEMS ==========
+        const itemsHTML = (order.items || [])
+            .map(i =>
+                `<li>${i.name} — <b>${Number(i.price).toLocaleString()}đ</b></li>`
+            )
             .join("");
 
         wrap.innerHTML += `
             <div class="order-box">
-                
                 <div class="order-header">
                     <div class="stt">🧾 Đơn số: <b>${index + 1}</b></div>
-                    <div class="time">⏰ ${order.time}</div>
+                    <div class="time">⏰ ${order.time || "Không rõ"}</div>
                 </div>
 
                 <div class="order-customer">
@@ -56,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 <ul class="order-items">
                     ${itemsHTML}
                 </ul>
-
             </div>
         `;
     });
