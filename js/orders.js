@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wrap.innerHTML = "";
 
-    orders.forEach(( index, order) => {
+    orders.forEach((order, index) => {
 
         const customer = order.customer || {};
         const typeText = customer.type === "table"
